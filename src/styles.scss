@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+:root
+{
+  --background-color: #26273B;
+  --background-card: rgba(252, 249, 249, 0.14);
+  --border-sidebar:rgba(240, 240, 240, 0.178);
+  --font-color-selected:#FFFFFF;
+  --font-color:#ffffff8e;
+  --gradient-orange: linear-gradient(90deg, #DE5632 0%, #FF7B58 100%);
+  --gradient-purple: linear-gradient(90deg, #814BFD 0%, #9A36D7 50.71%, #F239C9 100%);
+  --gradient-border: linear-gradient(132.83deg, rgba(242, 57, 201, 0.52) 3.03%, rgba(255, 123, 88, 0.52) 91.88%);
+}
+body{
+  background-color: var(--background-color);
+
+}
+
+body, h1, h2, h3, figure, input {
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+  font-family: inherit;
+}
