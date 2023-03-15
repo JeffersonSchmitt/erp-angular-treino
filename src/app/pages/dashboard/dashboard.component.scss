@@ -1,15 +1,21 @@
 .first-line{
   display: flex;
   flex-direction: row;
-  margin-left: 78px;
+  margin-left: 80px;
   margin-right: 80px;
-  margin-top: 27px;
+  margin-top: 24px;
   justify-content: space-around;
 }
+
+.second-line{
+  margin-top: 56px;
+  margin-bottom: 48px;
+}
+
 .third-line{
   display: flex;
   flex-direction: row;
-  margin-left: 78px;
+  margin-left: 80px;
   margin-right: 80px;
   justify-content: space-around;
 }

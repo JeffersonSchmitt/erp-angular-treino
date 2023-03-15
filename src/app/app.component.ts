@@ -10,13 +10,6 @@ import { MenuItem } from './shared/types';
 export class AppComponent {
   title = 'erp-angular-treino';
 
-  public titulo: string = '';
-  constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {
-    const xRotaTitulo = this.route.snapshot.url.join('/');
-    this.titulo = xRotaTitulo.charAt(0).toUpperCase() + xRotaTitulo.slice(1);
-  }
   itens: MenuItem[] = [
     { icone: 'fa-solid fa-gauge', titulo: 'Dashboard' },
     { icone: 'fa-solid fa-user', titulo: 'Clientes' },

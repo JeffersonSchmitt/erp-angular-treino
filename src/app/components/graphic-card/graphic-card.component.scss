@@ -1,0 +1,16 @@
+.card-graphic-container{
+  width: 766px;
+  height: 281px;
+  border: 1.24px solid var(--background-card);
+  background: rgba(252, 249, 249, 0.14);
+  border-radius: 8px;
+  margin: auto;
+  .title{
+    font-size: 1.4em;
+    font-weight: 700;
+    text-align: center;
+  }
+  canvas{
+    margin: auto;
+  }
+}

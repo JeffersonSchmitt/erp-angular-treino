@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 24px;
 
   .right-container{
     margin-left: 80px;
@@ -47,7 +48,7 @@
       right: 0;
       width: 152px;
       height: auto;
-      background-color: var(--background-card);
+      background-color: var(--topbar-dropdown);
       border-radius: 8px;
       text-align: start;
       a{

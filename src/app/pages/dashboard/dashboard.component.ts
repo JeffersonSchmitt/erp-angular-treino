@@ -10,4 +10,11 @@ export class DashboardComponent {
   data: string = '8+';
   type: string = 'Vendas realidadas';
   title: string = 'Total de vendas';
+  constructor(private route: ActivatedRoute) {}
+  public titulo: string = '';
+  ngOnInit() {
+    const xRotaTitulo = this.route.snapshot.url.join('/');
+    this.titulo = xRotaTitulo.charAt(0).toUpperCase() + xRotaTitulo.slice(1);
+    console.log(this.route.snapshot.url);
+  }
 }
