@@ -1,0 +1,28 @@
+.simple-card{
+width: 240px;
+height: 224px;
+background: rgba(252, 249, 249, 0.14);
+backdrop-filter: blur(8px);
+border-radius: 8px;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+border: 1.24px solid var(--background-card);
+
+  .title{
+    font-size: 1em;
+    font-weight: 500;
+    color: var(--font-color-selected);
+  }
+  .data{
+    font-size: 2.8em;
+    font-weight: 700;
+    color: var(--font-color-selected);
+  }
+  .type{
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--font-color-selected);
+  }
+}

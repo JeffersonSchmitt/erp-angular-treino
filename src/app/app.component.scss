@@ -1,0 +1,25 @@
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container-main {
+  display: flex;
+}
+
+.sidebar {
+  padding-right: 16px;
+}
+
+.topbar-router-container {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  height: 100%;
+}
+
+.topbar {
+  margin-top: 24px;
+}
+

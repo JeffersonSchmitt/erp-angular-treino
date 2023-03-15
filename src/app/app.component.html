@@ -1,1 +1,10 @@
-<erp-sidebar [menuList]="itens"></erp-sidebar>
+<header></header>
+<main>
+  <section class="container-main">
+    <erp-sidebar class="sidebar" [menuList]="itens"></erp-sidebar>
+    <div class="topbar-router-container">
+      <erp-topbar [titulo]="titulo" class="topbar"></erp-topbar>
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+</main>

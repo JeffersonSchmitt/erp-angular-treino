@@ -10,24 +10,24 @@
   <div class="menu-buttons-container">
     <div class="for-botao" *ngFor="let item of menuList; index as i;">
       <div *ngIf="i==0">
-        <div class="menu-button -selected" routerLinkActive="active">
+        <a href="#" class="menu-button -selected" routerLinkActive="active">
           <div class="icon">
             <i class="{{item.icone}}"></i>
           </div>
           <div class="text">
             {{item.titulo}}
           </div>
-        </div>
+        </a>
       </div>
       <div *ngIf="i>0">
-        <div class="menu-button">
+        <a class="menu-button">
           <div class="icon">
             <i class="{{item.icone}}"></i>
           </div>
           <div class="text">
             {{item.titulo}}
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
