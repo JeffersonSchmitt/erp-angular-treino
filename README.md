@@ -18,7 +18,6 @@ O usuário deve conseguir:
 - Visualizar
 - Controlar estoque
 - Controlar vendas
-- Controlar recursos humanos
 
 
 
