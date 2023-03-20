@@ -56,7 +56,7 @@
     .menu-button:hover{
       border: 1px solid var(--border-sidebar);
     }
-    .menu-button.-selected{
+    .menu-button-selected{
       background: var(--gradient-purple);
       .text{
         color: var(--font-color-selected);

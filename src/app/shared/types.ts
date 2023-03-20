@@ -1,4 +1,5 @@
 export type MenuItem = {
-  icone: string;
-  titulo: string;
+  icon: string;
+  title: string;
+  route: string;
 };

@@ -8,27 +8,97 @@
     </div>
   </div>
   <div class="menu-buttons-container">
-    <div class="for-botao" *ngFor="let item of menuList; index as i;">
-      <div *ngIf="i==0">
-        <a href="#" class="menu-button -selected" routerLinkActive="active">
-          <div class="icon">
-            <i class="{{item.icone}}"></i>
-          </div>
-          <div class="text">
-            {{item.titulo}}
-          </div>
-        </a>
-      </div>
-      <div *ngIf="i>0">
-        <a class="menu-button">
-          <div class="icon">
-            <i class="{{item.icone}}"></i>
-          </div>
-          <div class="text">
-            {{item.titulo}}
-          </div>
-        </a>
-      </div>
+    <div>
+      <a routerLink="dashboard" routerLinkActive="menu-button-selected" class="menu-button"
+        [routerLinkActiveOptions]="{exact: true}">
+        <div class="icon">
+          <i class="fa-solid fa-gauge"></i>
+        </div>
+        <div class="text">
+          Dashboard
+        </div>
+      </a>
+      <a routerLink="clientes" routerLinkActive="menu-button-selected" class="menu-button"
+        [routerLinkActiveOptions]="{exact: true}">
+        <div class="icon">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="text">
+          Clientes
+        </div>
+      </a>
+      <a routerLink="produtos" routerLinkActive="menu-button-selected" class="menu-button"
+        [routerLinkActiveOptions]="{exact: true}">
+        <div class="icon">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+        <div class="text">
+          Produtos
+        </div>
+      </a>
+      <a routerLink="vendas" routerLinkActive="menu-button-selected" class="menu-button"
+        [routerLinkActiveOptions]="{exact: true}">
+        <div class="icon">
+          <i class="fa-solid fa-money-bill"></i>
+        </div>
+        <div class="text">
+          Vendas
+        </div>
+      </a>
+      <a routerLink="pedidos-compra" routerLinkActive="menu-button-selected" class="menu-button"
+        [routerLinkActiveOptions]="{exact: true}">
+        <div class="icon">
+          <i class="fa-solid fa-wallet"></i>
+        </div>
+        <div class="text">
+          Pedidos de compra
+        </div>
+      </a>
+      <a routerLink="estoque" routerLinkActive="menu-button-selected" class="menu-button"
+        [routerLinkActiveOptions]="{exact: true}">
+        <div class="icon">
+          <i class="fa-solid fa-dolly"></i>
+        </div>
+        <div class="text">
+          Estoque
+        </div>
+      </a>
+      <a routerLink="caixa" routerLinkActive="menu-button-selected" class="menu-button"
+        [routerLinkActiveOptions]="{exact: true}">
+        <div class="icon">
+          <i class="fa-solid fa-cash-register"></i>
+        </div>
+        <div class="text">
+          Caixa
+        </div>
+      </a>
+      <a routerLink="relatorios" routerLinkActive="menu-button-selected" class="menu-button"
+        [routerLinkActiveOptions]="{exact: true}">
+        <div class="icon">
+          <i class="fa-solid fa-square-poll-vertical"></i>
+        </div>
+        <div class="text">
+          Relatorios
+        </div>
+      </a>
+      <a routerLink="configuracoes" routerLinkActive="menu-button-selected" class="menu-button"
+        [routerLinkActiveOptions]="{exact: true}">
+        <div class="icon">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+        <div class="text">
+          Configurações
+        </div>
+      </a>
+      <a routerLink="sair" routerLinkActive="menu-button-selected" class="menu-button"
+        [routerLinkActiveOptions]="{exact: true}">
+        <div class="icon">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
+        <div class="text">
+          Sair
+        </div>
+      </a>
     </div>
   </div>
 </div>
