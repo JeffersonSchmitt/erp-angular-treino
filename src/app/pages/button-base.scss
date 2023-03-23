@@ -1,0 +1,17 @@
+.button{
+background: var(--border-sidebar);
+border: 1px solid var(--border-grid);
+border-radius: 5px;
+color: var(--font-color-selected);
+}
+
+.button.-middle{
+ margin-left: 24px;
+ margin-right: 24px;
+}
+.button.-right{
+  margin-left: 24px;
+}
+.nav-link{
+  color: var(--font-color-selected);
+ }

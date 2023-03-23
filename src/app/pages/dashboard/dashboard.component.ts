@@ -6,7 +6,7 @@ import { MenuItem } from 'src/app/shared/types';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent {
+export class DashboardPage {
   data: string = '8+';
   type: string = 'Vendas realidadas';
   title: string = 'Total de vendas';
@@ -15,6 +15,5 @@ export class DashboardComponent {
   ngOnInit() {
     const xRotaTitulo = this.route.snapshot.url.join('/');
     this.titulo = xRotaTitulo.charAt(0).toUpperCase() + xRotaTitulo.slice(1);
-    console.log(this.route.snapshot.url);
   }
 }

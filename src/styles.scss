@@ -3,6 +3,7 @@
   --background-color: #26273B;
   --background-card: rgba(252, 249, 249, 0.315);
   --border-sidebar:rgba(240, 240, 240, 0.178);
+  --border-grid: rgba(240, 240, 240, 0.52);
   --topbar-dropdown:#484848;
   --font-color-selected:#FFFFFF;
   --font-color:#ffffff8e;
@@ -10,6 +11,7 @@
   --gradient-purple: linear-gradient(90deg, #814BFD 0%, #9A36D7 50.71%, #F239C9 100%);
   --gradient-border: linear-gradient(132.83deg, rgba(242, 57, 201, 0.52) 3.03%, rgba(255, 123, 88, 0.52) 91.88%);
 }
+
 body{
   background-color: var(--background-color);
 

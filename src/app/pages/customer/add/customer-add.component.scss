@@ -1,0 +1,15 @@
+@import url(../../grid-base.scss);
+@import url(../../button-base.scss);
+
+.form{
+  color: var(--font-color-selected);
+  width: 50%;
+  margin-top: 56px;
+  margin-left: 24px;
+}
+.buttons{
+  margin-top: 24px;
+}
+.row{
+  margin-top: 8px;
+}

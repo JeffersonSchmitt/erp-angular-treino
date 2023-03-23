@@ -1,0 +1,26 @@
+.table{
+  background-color: var(--border-sidebar);
+  border: 1px solid var(--border-grid);
+  color: var(--font-color-selected);
+  margin: auto;
+  width: 95%;
+  margin-top: 56px;
+}
+
+.selected {
+  background: var(--gradient-purple);
+  color: #fff;
+
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 96%;
+  margin-top: 40px;
+}
+
+.search{
+  border: 1px solid var(--border-grid);
+  width: 275px;
+}
