@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { Cliente } from 'src/app/shared/types';
 
 @Component({
   selector: 'app-list',
@@ -8,11 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CustomerListComponent {
   selectedCliente: any;
-  public titulo: string = '';
+  public title: string = '';
 
-  clientes = [
+  clientes: Cliente[] = [
     {
-      id: '1',
+      id: 1,
       nome: 'Ana Silva',
       cpfCnpj: '123.456.789-00',
       email: 'ana.silva@email.com',
@@ -24,9 +25,10 @@ export class CustomerListComponent {
       celular: '(11) 98765-4321',
       descricao: 'Cliente regular',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '2',
+      id: 2,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -38,9 +40,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '3',
+      id: 3,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -52,9 +55,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '4',
+      id: 4,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -66,9 +70,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '5',
+      id: 5,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -80,9 +85,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '6',
+      id: 6,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -94,9 +100,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '7',
+      id: 7,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -108,9 +115,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '8',
+      id: 8,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -122,9 +130,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '9',
+      id: 9,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -136,9 +145,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '10',
+      id: 10,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -150,9 +160,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '11',
+      id: 11,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -164,9 +175,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '12',
+      id: 12,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -178,9 +190,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '13',
+      id: 13,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -192,9 +205,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '14',
+      id: 14,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -206,9 +220,10 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
     {
-      id: '15',
+      id: 15,
       nome: 'João Souza',
       cpfCnpj: '987.654.321-00',
       email: 'joao.souza@email.com',
@@ -220,13 +235,18 @@ export class CustomerListComponent {
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
       selecionado: false,
+      excluido: false,
     },
   ];
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    const xRotaTitulo = this.route.snapshot.url.join('/');
-    this.titulo = xRotaTitulo.charAt(0).toUpperCase() + xRotaTitulo.slice(1);
+    const lastSegment =
+      this.route.snapshot.url[this.route.snapshot.url.length - 1];
+    const segmentTitle =
+      lastSegment.toString().charAt(0).toUpperCase() +
+      lastSegment.toString().slice(1);
+    this.title = segmentTitle;
   }
   selecionarCliente(cliente: any) {
     if (!cliente.selecionado) {
@@ -235,6 +255,25 @@ export class CustomerListComponent {
       cliente.selecionado = true;
     } else {
       cliente.selecionado = false;
+    }
+  }
+  editar() {
+    this.clientes.forEach((cliente) => {
+      if (cliente.selecionado == true) {
+        this.router.navigate(['clientes/editar'], { state: { cliente } });
+      }
+    });
+  }
+  deletar() {
+    const clienteAtualizar = this.clientes.find(
+      (cliente) => cliente.selecionado == true
+    );
+    if (clienteAtualizar) {
+      clienteAtualizar.excluido = true;
+      const index = this.clientes.findIndex(
+        (cliente) => cliente.id === clienteAtualizar.id
+      );
+      this.clientes.splice(index, 1, clienteAtualizar);
     }
   }
 }

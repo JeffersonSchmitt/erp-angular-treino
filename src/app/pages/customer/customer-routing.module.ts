@@ -8,7 +8,10 @@ const routes: Routes = [
   { path: 'clientes', redirectTo: 'clientes/listar', pathMatch: 'full' },
   { path: 'clientes/listar', component: CustomerListComponent },
   { path: 'clientes/editar', component: CustomerEditComponent },
-  { path: 'clientes/adicionar', component: CustomerAddComponent },
+  {
+    path: 'clientes/adicionar',
+    component: CustomerAddComponent,
+  },
 
   { path: '**', redirectTo: 'dashboard' },
 ];

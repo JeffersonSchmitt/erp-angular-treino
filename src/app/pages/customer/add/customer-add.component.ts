@@ -1,18 +1,33 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-
+import { Component, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DialogConfirmComponent } from 'src/app/components/dialog-confirm/dialog-confirm.component';
+export interface FormComponent {
+  hasFormChanges: () => boolean;
+}
 @Component({
   selector: 'app-add',
   templateUrl: './customer-add.component.html',
   styleUrls: ['./customer-add.component.scss'],
 })
 export class CustomerAddComponent {
-  public titulo: string = '';
+  public title: string = '';
 
   ngOnInit() {
-    const xRotaTitulo = this.route.snapshot.url.join('/');
-    this.titulo = xRotaTitulo.charAt(0).toUpperCase() + xRotaTitulo.slice(1);
+    const lastSegment =
+      this.route.snapshot.url[this.route.snapshot.url.length - 1];
+    const segmentTitle =
+      lastSegment.toString().charAt(0).toUpperCase() +
+      lastSegment.toString().slice(1);
+    this.title = segmentTitle;
   }
 
-  constructor(private route: ActivatedRoute) {}
+  voltar() {
+    if (
+      window.confirm('Os dados digitados não serão salvos, deseja continuar?')
+    ) {
+      this.router.navigate(['clientes/listar']);
+    }
+  }
+
+  constructor(private route: ActivatedRoute, private router: Router) {}
 }

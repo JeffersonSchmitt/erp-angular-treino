@@ -1,9 +1,9 @@
-<erp-topbar [titulo]="titulo" class="topbar"></erp-topbar>
+<erp-topbar [titulo]="title" class="topbar"></erp-topbar>
 <nav class="nav">
   <div class="buttons">
     <button class="button"><a class="nav-link" [routerLink]="['/clientes/adicionar']">Adicionar</a></button>
-    <button class="button -middle"><a class="nav-link" [routerLink]="['/clientes/editar']">Editar</a></button>
-    <button class="button"><a class="nav-link" href="#">Deletar</a></button>
+    <button class="button -middle"><a class="nav-link" (click)="editar()">Editar</a></button>
+    <button class="button"><a class="nav-link" (click)="deletar()">Deletar</a></button>
   </div>
   <form class="d-flex " role="search">
     <input class="form-control me-2 search" type="search" placeholder="Procurar" aria-label="Search">
@@ -26,9 +26,9 @@
       <th>Descrição</th>
     </tr>
   </thead>
-  <tbody>
-    <tr *ngFor="let cliente of clientes" [class.active]="cliente.selecionado"
-      [ngClass]="{'selected': cliente.selecionado}" (click)="selecionarCliente(cliente)">
+  <tbody *ngFor="let cliente of clientes" [class.active]="cliente.selecionado"
+    [ngClass]="{'selected': cliente.selecionado}" (click)="selecionarCliente(cliente)">
+    <tr *ngIf="!cliente.excluido">
       <td><input type="checkbox" [checked]="cliente.selecionado"></td>
       <td>{{ cliente.id }}</td>
       <td>{{ cliente.nome }}</td>

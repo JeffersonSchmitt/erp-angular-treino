@@ -1,5 +1,6 @@
-<erp-topbar [titulo]="titulo" class="topbar"></erp-topbar>
-<div class="form">
+<erp-topbar [titulo]="title" class="topbar"></erp-topbar>
+<div class="forms">
+  <erp-dialog-confirm #modalRef></erp-dialog-confirm>
   <form>
     <div class="row g-2">
       <div class="form-group col-md-6">
@@ -55,10 +56,9 @@
       <label for="descricao">Descrição:</label>
       <textarea class="form-control" id="descricao" rows="3"></textarea>
     </div>
-    <div class="buttons">
+    <div class="buttons-form">
       <button type="submit" class="btn button">Enviar</button>
-      <button type="submit" class="btn button -right">Cancelar</button>
+      <button type="button" class="btn button -right" (click)="voltar()">Voltar</button>
     </div>
-
   </form>
 </div>

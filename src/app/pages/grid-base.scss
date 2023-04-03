@@ -10,7 +10,6 @@
 .selected {
   background: var(--gradient-purple);
   color: #fff;
-
 }
 .nav{
   display: flex;
@@ -23,4 +22,17 @@
 .search{
   border: 1px solid var(--border-grid);
   width: 275px;
+}
+
+.forms{
+  color: var(--font-color-selected);
+  width: 50%;
+  margin-top: 56px;
+  margin-left: 24px;
+}
+.buttons-form{
+  margin-top: 24px;
+}
+.row{
+  margin-top: 8px;
 }
