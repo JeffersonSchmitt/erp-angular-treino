@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { CustomerRoutingModule } from './pages/customer/customer-routing.module';
 import { PagesModule } from './pages/pages.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { PagesModule } from './pages/pages.module';
     CommonModule,
     PagesModule,
     ComponentsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

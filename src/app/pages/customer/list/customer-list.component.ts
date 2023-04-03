@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Cliente } from 'src/app/shared/types';
 
@@ -10,8 +11,10 @@ import { Cliente } from 'src/app/shared/types';
 export class CustomerListComponent {
   selectedCliente: any;
   public title: string = '';
+  filteredList: Cliente[] = [];
+  showFiltredList = false;
 
-  clientes: Cliente[] = [
+  customers: Cliente[] = [
     {
       id: 1,
       nome: 'Ana Silva',
@@ -248,32 +251,50 @@ export class CustomerListComponent {
       lastSegment.toString().slice(1);
     this.title = segmentTitle;
   }
-  selecionarCliente(cliente: any) {
+
+  selectedCustomer(cliente: any) {
     if (!cliente.selecionado) {
       this.selectedCliente = cliente;
-      this.clientes.forEach((p) => (p.selecionado = false));
+      this.customers.forEach((p) => (p.selecionado = false));
       cliente.selecionado = true;
     } else {
       cliente.selecionado = false;
     }
   }
-  editar() {
-    this.clientes.forEach((cliente) => {
+
+  edit() {
+    this.customers.forEach((cliente) => {
       if (cliente.selecionado == true) {
         this.router.navigate(['clientes/editar'], { state: { cliente } });
       }
     });
   }
-  deletar() {
-    const clienteAtualizar = this.clientes.find(
+
+  delete() {
+    const clienteAtualizar = this.customers.find(
       (cliente) => cliente.selecionado == true
     );
     if (clienteAtualizar) {
       clienteAtualizar.excluido = true;
-      const index = this.clientes.findIndex(
+      const index = this.customers.findIndex(
         (cliente) => cliente.id === clienteAtualizar.id
       );
-      this.clientes.splice(index, 1, clienteAtualizar);
+      this.customers.splice(index, 1, clienteAtualizar);
     }
+  }
+  search(pSearchTerm: string) {
+    pSearchTerm = pSearchTerm.trim();
+    if (!pSearchTerm) {
+      this.filteredList = [];
+      this.showFiltredList = false;
+    }
+    this.filteredList = this.customers.filter((item) =>
+      Object.values(item).some(
+        (value) =>
+          typeof value === 'string' &&
+          value.toLowerCase().includes(pSearchTerm.toLowerCase())
+      )
+    );
+    this.showFiltredList = true;
   }
 }
