@@ -6,16 +6,16 @@ export type MenuItem = {
 
 export type Customer = {
   id: number;
-  nome: string;
+  name: string;
   cpfCnpj: string;
   email: string;
   cep: string;
-  endereco: string;
-  cidade: string;
-  estado: string;
-  telefone: string;
-  celular: string;
-  descricao: string;
+  address: string;
+  city: string;
+  state: string;
+  phone: string;
+  mobilePhone: string;
+  description: string;
   selected: boolean;
   deleted: boolean;
 };

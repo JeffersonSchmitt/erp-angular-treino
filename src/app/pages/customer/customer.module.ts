@@ -6,7 +6,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerListComponent } from './list/customer-list.component';
 import { CustomerEditComponent } from './edit/customer-edit.component';
 import { CustomerAddComponent } from './add/customer-add.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     CustomerRoutingModule,
     ComponentsModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [],

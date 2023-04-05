@@ -1,60 +1,63 @@
 <erp-topbar [titulo]="title" class="topbar"></erp-topbar>
 <div class="forms">
   <erp-dialog-confirm #modalRef></erp-dialog-confirm>
-  <form>
+  <form [formGroup]="this.customerForm" (ngSubmit)="adicionar()">
     <div class="row g-2">
       <div class="form-group col-md-6">
         <label for="nome">Nome:</label>
-        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
+        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Digite seu nome">
       </div>
       <div class="form-group col-md-6">
         <label for="cpfcnpj">CPF/CNPJ:</label>
-        <input type="text" class="form-control" id="cpfcnpj" placeholder="Digite seu CPF ou CNPJ">
+        <input type="text" class="form-control" id="cpfcnpj" formControlName="cpfCnpj"
+          placeholder="Digite seu CPF ou CNPJ">
       </div>
 
     </div>
     <div class="row g-2">
       <div class="form-group col-md-6">
         <label for="email">E-mail:</label>
-        <input type="text" class="form-control" id="email" placeholder="Digite seu email">
+        <input type="text" class="form-control" id="email" formControlName="email" placeholder="Digite seu email">
       </div>
     </div>
     <div class="row g-2">
       <div class="form-group col-md-6">
         <label for="cep">Cep:</label>
-        <input type="text" class="form-control" id="cep" placeholder="Digite seu cep">
+        <input type="text" class="form-control" id="cep" formControlName="cep" placeholder="Digite seu cep">
       </div>
       <div class="form-group col-md-6">
         <label for="endereco">Endereço:</label>
-        <input type="text" class="form-control" id="endereco" placeholder="Digite seu endereço">
+        <input type="text" class="form-control" id="address" formControlName="address"
+          placeholder="Digite seu endereço">
       </div>
 
     </div>
     <div class="row g-2">
       <div class="form-group col-md-6">
         <label for="cidade">Cidade:</label>
-        <input type="text" class="form-control" id="cidade" placeholder="Digite sua cidade">
+        <input type="text" class="form-control" id="city" formControlName="city" placeholder="Digite sua cidade">
       </div>
       <div class="form-group col-md-6">
         <label for="estado">Estado:</label>
-        <input type="text" class="form-control" id="estado" placeholder="Digite seu estado">
+        <input type="text" class="form-control" id="state" formControlName="state" placeholder="Digite seu estado">
       </div>
 
     </div>
     <div class="row g-2">
       <div class="form-group col-md-6">
         <label for="telefone">Telefone:</label>
-        <input type="text" class="form-control" id="telefone" placeholder="Digite seu telefone">
+        <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Digite seu telefone">
       </div>
       <div class="form-group col-md-6">
         <label for="celular">Celular:</label>
-        <input type="text" class="form-control" id="celular" placeholder="Digite seu celular">
+        <input type="text" class="form-control" id="mobilePhone" formControlName="mobilePhone"
+          placeholder="Digite seu celular">
       </div>
 
     </div>
     <div class="form-group">
       <label for="descricao">Descrição:</label>
-      <textarea class="form-control" id="descricao" rows="3"></textarea>
+      <textarea class="form-control" id="description" formControlName="description" rows="3"></textarea>
     </div>
     <div class="buttons-form">
       <button type="submit" class="btn button">Enviar</button>
