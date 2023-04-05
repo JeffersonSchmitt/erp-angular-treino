@@ -5,7 +5,8 @@
     <div class="row g-2">
       <div class="form-group col-md-6">
         <label for="nome">Nome:</label>
-        <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" [value]="customer?.name">
+        <input type="text" class="form-control" id="nome" [(ngModel)]="customer!.name"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite seu nome" [value]="customer?.name">
       </div>
       <div class="form-group col-md-6">
         <label for="cpfcnpj">CPF/CNPJ:</label>
@@ -61,7 +62,7 @@
       <textarea class="form-control" id="descricao" rows="3" [value]="customer?.description"></textarea>
     </div>
     <div class="buttons-form">
-      <button type="submit" class="btn button">Enviar</button>
+      <button type="submit" class="btn button" (click)="editar()">Enviar</button>
       <button type="button" class="btn button -right" (click)="voltar()">Voltar</button>
     </div>
   </form>

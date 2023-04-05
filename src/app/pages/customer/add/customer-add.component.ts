@@ -63,5 +63,6 @@ export class CustomerAddComponent {
     console.log(newCustomer);
 
     localStorage.setItem('customers', JSON.stringify(customers));
+    this.router.navigate(['clientes/listar']);
   }
 }

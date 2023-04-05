@@ -27,7 +27,7 @@
       <th>Descrição</th>
     </tr>
   </thead>
-  <tbody *ngFor="let customer of customers" [class.active]="customer.selected"
+  <tbody *ngFor="let customer of this.items" [class.active]="customer.selected"
     [ngClass]="{'selected': customer.selected}" (click)="selectCustomer(customer)">
     <tr *ngIf="!customer.deleted">
       <td><input type="checkbox" [checked]="customer.selected"></td>
