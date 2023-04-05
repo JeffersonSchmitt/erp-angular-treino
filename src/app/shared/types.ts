@@ -4,7 +4,7 @@ export type MenuItem = {
   route: string;
 };
 
-export type Cliente = {
+export type Customer = {
   id: number;
   nome: string;
   cpfCnpj: string;
@@ -16,6 +16,6 @@ export type Cliente = {
   telefone: string;
   celular: string;
   descricao: string;
-  selecionado: boolean;
-  excluido: boolean;
+  selected: boolean;
+  deleted: boolean;
 };

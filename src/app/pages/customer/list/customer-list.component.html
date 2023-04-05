@@ -2,15 +2,15 @@
 <nav class="nav">
   <div class="buttons">
     <button class="button"><a class="nav-link" [routerLink]="['/clientes/adicionar']">Adicionar</a></button>
-    <button class="button -middle"><a class="nav-link" (click)="edit()">Editar</a></button>
-    <button class="button"><a class="nav-link" (click)="delete()">Deletar</a></button>
+    <button class="button -middle"><a class="nav-link" (click)="editCustomer()">Editar</a></button>
+    <button class="button"><a class="nav-link" (click)="deleteCustomer()">Deletar</a></button>
   </div>
   <form class="d-flex " role="search">
-    <input type="text" class="form-control me-2 search" placeholder="Procurar" #filter (input)="search(filter.value)"
-      name="search">
+    <input type="text" class="form-control me-2 search" placeholder="Procurar" #filter
+      (input)="searchCustomer(filter.value)" name="search">
   </form>
 </nav>
-<table class="table" *ngIf="!showFiltredList">
+<table class="table" *ngIf="!this.showFilteredList">
   <thead>
     <tr>
       <th></th>
@@ -27,25 +27,25 @@
       <th>Descrição</th>
     </tr>
   </thead>
-  <tbody *ngFor="let cliente of customers" [class.active]="cliente.selecionado"
-    [ngClass]="{'selected': cliente.selecionado}" (click)="selectedCustomer(cliente)">
-    <tr *ngIf="!cliente.excluido">
-      <td><input type="checkbox" [checked]="cliente.selecionado"></td>
-      <td>{{ cliente.id }}</td>
-      <td>{{ cliente.nome }}</td>
-      <td>{{ cliente.cpfCnpj }}</td>
-      <td>{{ cliente.email }}</td>
-      <td>{{ cliente.cep }}</td>
-      <td>{{ cliente.endereco }}</td>
-      <td>{{ cliente.cidade }}</td>
-      <td>{{ cliente.estado }}</td>
-      <td>{{ cliente.telefone }}</td>
-      <td>{{ cliente.celular }}</td>
-      <td>{{ cliente.descricao }}</td>
+  <tbody *ngFor="let customer of customers" [class.active]="customer.selected"
+    [ngClass]="{'selected': customer.selected}" (click)="selectCustomer(customer)">
+    <tr *ngIf="!customer.deleted">
+      <td><input type="checkbox" [checked]="customer.selected"></td>
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.nome }}</td>
+      <td>{{ customer.cpfCnpj }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.cep }}</td>
+      <td>{{ customer.endereco }}</td>
+      <td>{{ customer.cidade }}</td>
+      <td>{{ customer.estado }}</td>
+      <td>{{ customer.telefone }}</td>
+      <td>{{ customer.celular }}</td>
+      <td>{{ customer.descricao }}</td>
     </tr>
   </tbody>
 </table>
-<table class="table" *ngIf="showFiltredList">
+<table class="table" *ngIf="this.showFilteredList">
   <thead>
     <tr>
       <th></th>
@@ -62,21 +62,21 @@
       <th>Descrição</th>
     </tr>
   </thead>
-  <tbody *ngFor="let cliente of filteredList" [class.active]="cliente.selecionado"
-    [ngClass]="{'selected': cliente.selecionado}" (click)="selectedCustomer(cliente)">
-    <tr *ngIf="!cliente.excluido">
-      <td><input type="checkbox" [checked]="cliente.selecionado"></td>
-      <td>{{ cliente.id }}</td>
-      <td>{{ cliente.nome }}</td>
-      <td>{{ cliente.cpfCnpj }}</td>
-      <td>{{ cliente.email }}</td>
-      <td>{{ cliente.cep }}</td>
-      <td>{{ cliente.endereco }}</td>
-      <td>{{ cliente.cidade }}</td>
-      <td>{{ cliente.estado }}</td>
-      <td>{{ cliente.telefone }}</td>
-      <td>{{ cliente.celular }}</td>
-      <td>{{ cliente.descricao }}</td>
+  <tbody *ngFor="let customer of filteredList" [class.active]="customer.selected"
+    [ngClass]="{'selected': customer.selected}" (click)="selectCustomer(customer)">
+    <tr *ngIf="!customer.deleted">
+      <td><input type="checkbox" [checked]="customer.selected"></td>
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.nome }}</td>
+      <td>{{ customer.cpfCnpj }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.cep }}</td>
+      <td>{{ customer.endereco }}</td>
+      <td>{{ customer.cidade }}</td>
+      <td>{{ customer.estado }}</td>
+      <td>{{ customer.telefone }}</td>
+      <td>{{ customer.celular }}</td>
+      <td>{{ customer.descricao }}</td>
     </tr>
   </tbody>
 </table>

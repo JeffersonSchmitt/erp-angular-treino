@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Cliente } from 'src/app/shared/types';
+import { Customer } from 'src/app/shared/types';
 
 @Component({
   selector: 'app-edit',
@@ -8,7 +8,7 @@ import { Cliente } from 'src/app/shared/types';
   styleUrls: ['./customer-edit.component.scss'],
 })
 export class CustomerEditComponent {
-  cliente?: Cliente;
+  customer?: Customer;
   title: string = '';
 
   constructor(private route: ActivatedRoute, private router: Router) {}
@@ -20,6 +20,7 @@ export class CustomerEditComponent {
       lastSegment.toString().charAt(0).toUpperCase() +
       lastSegment.toString().slice(1);
     this.title = segmentTitle;
+    this.customer = history.state.cliente;
   }
 
   voltar() {

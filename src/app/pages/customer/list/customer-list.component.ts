@@ -1,20 +1,25 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { Cliente } from 'src/app/shared/types';
+import { ListBase } from 'src/app/shared/listBase';
+import { Customer } from 'src/app/shared/types';
 
 @Component({
   selector: 'app-list',
   templateUrl: './customer-list.component.html',
   styleUrls: ['./customer-list.component.scss'],
 })
-export class CustomerListComponent {
-  selectedCliente: any;
-  public title: string = '';
-  filteredList: Cliente[] = [];
-  showFiltredList = false;
+export class CustomerListComponent extends ListBase<Customer> {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private routerList: Router
+  ) {
+    super(activatedRoute, routerList);
+  }
 
-  customers: Cliente[] = [
+  public title: string = '';
+
+  customers: Customer[] = [
     {
       id: 1,
       nome: 'Ana Silva',
@@ -27,8 +32,8 @@ export class CustomerListComponent {
       telefone: '(11) 1234-5678',
       celular: '(11) 98765-4321',
       descricao: 'Cliente regular',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 2,
@@ -42,8 +47,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 3,
@@ -57,8 +62,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 4,
@@ -72,8 +77,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 5,
@@ -87,8 +92,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 6,
@@ -102,8 +107,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 7,
@@ -117,8 +122,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 8,
@@ -132,8 +137,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 9,
@@ -147,8 +152,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 10,
@@ -162,8 +167,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 11,
@@ -177,8 +182,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 12,
@@ -192,8 +197,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 13,
@@ -207,8 +212,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 14,
@@ -222,8 +227,8 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
     {
       id: 15,
@@ -237,64 +242,40 @@ export class CustomerListComponent {
       telefone: '(21) 2345-6789',
       celular: '(21) 87654-3210',
       descricao: 'Novo cliente',
-      selecionado: false,
-      excluido: false,
+      selected: false,
+      deleted: false,
     },
   ];
-  constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     const lastSegment =
-      this.route.snapshot.url[this.route.snapshot.url.length - 1];
+      this.activatedRoute.snapshot.url[
+        this.activatedRoute.snapshot.url.length - 1
+      ];
     const segmentTitle =
       lastSegment.toString().charAt(0).toUpperCase() +
       lastSegment.toString().slice(1);
     this.title = segmentTitle;
+    this.items = this.customers;
   }
 
-  selectedCustomer(cliente: any) {
-    if (!cliente.selecionado) {
-      this.selectedCliente = cliente;
-      this.customers.forEach((p) => (p.selecionado = false));
-      cliente.selecionado = true;
-    } else {
-      cliente.selecionado = false;
-    }
+  selectCustomer(cliente: Customer) {
+    this.select(cliente);
   }
 
-  edit() {
+  editCustomer() {
     this.customers.forEach((cliente) => {
-      if (cliente.selecionado == true) {
-        this.router.navigate(['clientes/editar'], { state: { cliente } });
+      if (cliente.selected == true) {
+        this.routerList.navigate(['clientes/editar'], { state: { cliente } });
       }
     });
   }
 
-  delete() {
-    const clienteAtualizar = this.customers.find(
-      (cliente) => cliente.selecionado == true
-    );
-    if (clienteAtualizar) {
-      clienteAtualizar.excluido = true;
-      const index = this.customers.findIndex(
-        (cliente) => cliente.id === clienteAtualizar.id
-      );
-      this.customers.splice(index, 1, clienteAtualizar);
-    }
+  deleteCustomer() {
+    this.delete();
   }
-  search(pSearchTerm: string) {
-    pSearchTerm = pSearchTerm.trim();
-    if (!pSearchTerm) {
-      this.filteredList = [];
-      this.showFiltredList = false;
-    }
-    this.filteredList = this.customers.filter((item) =>
-      Object.values(item).some(
-        (value) =>
-          typeof value === 'string' &&
-          value.toLowerCase().includes(pSearchTerm.toLowerCase())
-      )
-    );
-    this.showFiltredList = true;
+
+  searchCustomer(pSearchTerm: string) {
+    this.search(pSearchTerm);
   }
 }
