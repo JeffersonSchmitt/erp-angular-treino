@@ -20,14 +20,7 @@ export class CustomerListComponent extends ListBase<Customer> {
   public title: string = '';
 
   ngOnInit() {
-    const lastSegment =
-      this.activatedRoute.snapshot.url[
-        this.activatedRoute.snapshot.url.length - 1
-      ];
-    const segmentTitle =
-      lastSegment.toString().charAt(0).toUpperCase() +
-      lastSegment.toString().slice(1);
-    this.title = segmentTitle;
+    this.title = 'Todos os ' + this.activatedRoute.snapshot.url[0];
     this.items = JSON.parse(localStorage.getItem('customers') || '[]');
   }
 

@@ -16,30 +16,29 @@ export class CustomerEditComponent {
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    const lastSegment =
-      this.route.snapshot.url[this.route.snapshot.url.length - 1];
-    const segmentTitle =
-      lastSegment.toString().charAt(0).toUpperCase() +
-      lastSegment.toString().slice(1);
-    this.title = segmentTitle;
     this.customer = history.state.cliente;
+    const segmentTitle =
+      this.customer!.name.toString().charAt(0).toUpperCase() +
+      this.customer!.name.toString().slice(1);
+    this.title = segmentTitle;
+
     this.customers = JSON.parse(localStorage.getItem('customers') || '[]');
   }
 
   editar() {
     const index = this.customers.findIndex((c) => c.id === this.customer?.id);
-    // this.customers.forEach((customer) => {
-    //   if (customer.id === this.customer?.id) {
-    //     customer = this.customer;
-    //   }
-    //   console.log(customer);
-    // });
+
     if (index !== -1) {
-      Object.assign(this.customers[index], this.customer);
+      if (this.customer) {
+        this.customer!.selected = false;
+        this.customer!.deleted = false;
+        Object.assign(this.customers[index], this.customer);
+      }
     }
     localStorage.setItem('customers', JSON.stringify(this.customers));
     this.router.navigate(['clientes/listar']);
   }
+
   voltar() {
     if (
       window.confirm('Os dados digitados não serão salvos, deseja continuar?')

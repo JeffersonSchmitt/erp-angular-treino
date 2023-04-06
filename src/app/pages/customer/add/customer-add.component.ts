@@ -11,7 +11,7 @@ export interface FormComponent {
   styleUrls: ['./customer-add.component.scss'],
 })
 export class CustomerAddComponent {
-  title: string = '';
+  title: string = 'Adicionar cliente';
   customerForm!: FormGroup;
 
   constructor(
@@ -25,6 +25,8 @@ export class CustomerAddComponent {
       email: ['', Validators.required],
       cep: ['', Validators.required],
       address: ['', Validators.required],
+      number: ['', Validators.required],
+      neighborhood: ['', Validators.required],
       city: ['', Validators.required],
       state: ['', Validators.required],
       phone: ['', Validators.required],
@@ -33,14 +35,7 @@ export class CustomerAddComponent {
     });
   }
 
-  ngOnInit() {
-    const lastSegment =
-      this.route.snapshot.url[this.route.snapshot.url.length - 1];
-    const segmentTitle =
-      lastSegment.toString().charAt(0).toUpperCase() +
-      lastSegment.toString().slice(1);
-    this.title = segmentTitle;
-  }
+  ngOnInit() {}
 
   voltar() {
     if (

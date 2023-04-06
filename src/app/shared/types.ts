@@ -11,6 +11,8 @@ export type Customer = {
   email: string;
   cep: string;
   address: string;
+  number: string;
+  neighborhood: string;
   city: string;
   state: string;
   phone: string;

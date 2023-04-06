@@ -1,10 +1,14 @@
 .button{
-background: var(--border-sidebar);
+background: none;
 border: 1px solid var(--border-grid);
 border-radius: 5px;
 color: var(--font-color-selected);
 }
 
+button:hover{
+background: var(--border-sidebar);
+transition: all 0.4s ease-out;
+}
 .button.-middle{
  margin-left: 24px;
  margin-right: 24px;
