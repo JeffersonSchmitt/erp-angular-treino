@@ -8,17 +8,20 @@ import { ComponentsModule } from './components/components.module';
 import { CustomerRoutingModule } from './pages/customer/customer-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
+import { ProductRoutingModule } from './pages/product/product-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
-    RouterModule,
     AppRoutingModule,
+    BrowserModule,
     CommonModule,
-    PagesModule,
     ComponentsModule,
+    CustomerRoutingModule,
+    ProductRoutingModule,
     FormsModule,
+    PagesModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

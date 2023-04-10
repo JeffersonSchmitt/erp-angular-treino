@@ -5,19 +5,32 @@ export type MenuItem = {
 };
 
 export type Customer = {
-  id: number;
-  name: string;
-  cpfCnpj: string;
-  email: string;
-  cep: string;
   address: string;
-  number: string;
-  neighborhood: string;
+  cep: string;
   city: string;
-  state: string;
-  phone: string;
-  mobilePhone: string;
-  description: string;
-  selected: boolean;
+  cpfCnpj: string;
   deleted: boolean;
+  description: string;
+  email: string;
+  id: number;
+  mobilePhone: string;
+  name: string;
+  neighborhood: string;
+  number: string;
+  phone: string;
+  selected: boolean;
+  state: string;
+};
+export type Product = {
+  brand: string;
+  category: string;
+  codeBar: string;
+  description: string;
+  id: number;
+  imageUrl: string;
+  measuringUnit: string;
+  name: string;
+  price: number;
+  quantity: number;
+  supplier: string;
 };

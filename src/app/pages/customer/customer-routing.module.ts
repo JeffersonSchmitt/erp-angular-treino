@@ -12,8 +12,6 @@ const routes: Routes = [
     path: 'clientes/adicionar',
     component: CustomerAddComponent,
   },
-
-  { path: '**', redirectTo: 'dashboard' },
 ];
 
 @NgModule({

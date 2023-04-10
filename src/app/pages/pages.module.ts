@@ -8,20 +8,33 @@ import { DashboardPage } from './dashboard/dashboard.component';
 import { CustomerPage } from './customer/customer.component';
 import { CustomerRoutingModule } from './customer/customer-routing.module';
 import { CustomerModule } from './customer/customer.module';
+import { ProductModule } from './product/product.module';
+import { ProductRoutingModule } from './product/product-routing.module';
+import { ProductPage } from './product/product.component';
 
 @NgModule({
-  declarations: [DashboardPage, CustomerPage],
+  declarations: [DashboardPage, CustomerPage, ProductPage],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    ComponentsModule,
+    BrowserModule,
     CommonModule,
+    ComponentsModule,
     ComponentsRoutingModule,
     CustomerModule,
     CustomerRoutingModule,
+    ProductModule,
+    ProductRoutingModule,
   ],
   providers: [],
   bootstrap: [],
-  exports: [DashboardPage, CustomerPage, CustomerModule, CustomerRoutingModule],
+  exports: [
+    CustomerModule,
+    CustomerPage,
+    CustomerRoutingModule,
+    DashboardPage,
+    ProductModule,
+    ProductPage,
+    ProductRoutingModule,
+  ],
 })
 export class PagesModule {}
