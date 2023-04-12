@@ -19,3 +19,7 @@ transition: all 0.4s ease-out;
 .nav-link{
   color: var(--font-color-selected);
  }
+.disabled{
+  background-color: var(--border-sidebar);
+  color: var(--background-card);
+}

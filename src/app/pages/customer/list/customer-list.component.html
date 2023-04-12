@@ -16,7 +16,6 @@
       <th></th>
       <th>Nome</th>
       <th>CPF/CNPJ</th>
-      <th>Email</th>
       <th>Endereço</th>
       <th>Número</th>
       <th>Bairro</th>
@@ -24,16 +23,15 @@
       <th>Estado</th>
       <th>Telefone</th>
       <th>celular</th>
-      <th>Descrição</th>
     </tr>
   </thead>
-  <tbody *ngFor="let customer of this.items" [class.active]="customer.selected"
+  <tbody *ngFor="let customer of this.pagination" [class.active]="customer.selected"
     [ngClass]="{'selected': customer.selected}" (click)="selectCustomer(customer)">
     <tr *ngIf="!customer.deleted">
       <td><input type="checkbox" [checked]="customer.selected"></td>
-      <td>{{ customer.name }}</td>
+      <td title="Detalhes de {{customer.name}}" class="field-link" [routerLink]="['/clientes/detalhes']">{{
+        customer.name }}</td>
       <td>{{ customer.cpfCnpj }}</td>
-      <td>{{ customer.email }}</td>
       <td>{{ customer.address }}</td>
       <td>{{ customer.number }}</td>
       <td>{{ customer.neighborhood }}</td>
@@ -41,17 +39,25 @@
       <td>{{ customer.state }}</td>
       <td>{{ customer.phone }}</td>
       <td>{{ customer.mobilePhone }}</td>
-      <td>{{ customer.description }}</td>
     </tr>
   </tbody>
+
 </table>
+<nav aria-label="Page navigation example" *ngIf="!this.showFilteredList">
+  <ul class="pagination" style="margin-top: 10px;margin-left: 8px;">
+    <li class="page-item"><button class="page-link button" [disabled]="currentPage === 1"
+        [class.disabled]="currentPage === 1" (click)="previousPage()">Anterior</button></li>
+    <li class="page-item"><button class="page-link button" [disabled]="this.currentPage === totalPages"
+        [class.disabled]="this.currentPage === totalPages" (click)="nextPage()"
+        style="margin-left: 8px;">Próxima</button></li>
+  </ul>
+</nav>
 <table class="table" *ngIf="this.showFilteredList">
   <thead>
     <tr>
       <th></th>
       <th>Nome</th>
       <th>CPF/CNPJ</th>
-      <th>Email</th>
       <th>Endereço</th>
       <th>Número</th>
       <th>Bairro</th>
@@ -59,7 +65,6 @@
       <th>Estado</th>
       <th>Telefone</th>
       <th>celular</th>
-      <th>Descrição</th>
     </tr>
   </thead>
   <tbody *ngFor="let customer of filteredList" [class.active]="customer.selected"
@@ -68,7 +73,6 @@
       <td><input type="checkbox" [checked]="customer.selected"></td>
       <td>{{ customer.name }}</td>
       <td>{{ customer.cpfCnpj }}</td>
-      <td>{{ customer.email }}</td>
       <td>{{ customer.address }}</td>
       <td>{{ customer.number }}</td>
       <td>{{ customer.neighborhood }}</td>
@@ -76,7 +80,6 @@
       <td>{{ customer.state }}</td>
       <td>{{ customer.phone }}</td>
       <td>{{ customer.mobilePhone }}</td>
-      <td>{{ customer.description }}</td>
     </tr>
   </tbody>
 </table>

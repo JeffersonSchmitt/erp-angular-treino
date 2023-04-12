@@ -7,6 +7,7 @@ import { CustomerListComponent } from './list/customer-list.component';
 import { CustomerEditComponent } from './edit/customer-edit.component';
 import { CustomerAddComponent } from './add/customer-add.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DevExtremeModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ComponentsModule,
     FormsModule,
     ReactiveFormsModule,
+    DevExtremeModule,
   ],
   providers: [],
   bootstrap: [],

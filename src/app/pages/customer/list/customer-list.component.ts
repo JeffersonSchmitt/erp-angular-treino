@@ -22,6 +22,7 @@ export class CustomerListComponent extends ListBase<Customer> {
   ngOnInit() {
     this.title = 'Todos os ' + this.activatedRoute.snapshot.url[0];
     this.items = JSON.parse(localStorage.getItem('customers') || '[]');
+    this.totalPages = Math.ceil(this.items.length / this.itemsPerPage);
   }
 
   selectCustomer(cliente: Customer) {

@@ -9,6 +9,9 @@ export abstract class ListBase<T extends Item> {
   items: T[] = [];
   filteredList: T[] = [];
   showFilteredList = false;
+  currentPage = 1;
+  itemsPerPage = 15;
+  totalPages = 0;
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
@@ -38,7 +41,7 @@ export abstract class ListBase<T extends Item> {
 
   search(searchTerm: string) {
     searchTerm = searchTerm.trim();
-    if (!searchTerm) {
+    if (searchTerm.length < 3) {
       this.filteredList = [];
       this.showFilteredList = false;
       return;
@@ -50,7 +53,24 @@ export abstract class ListBase<T extends Item> {
           value.toLowerCase().includes(searchTerm.toLowerCase())
       )
     );
-
     this.showFilteredList = true;
+  }
+
+  get pagination() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    console.log(Math.ceil(this.items.length / this.itemsPerPage));
+
+    return this.items.slice(startIndex, endIndex);
+  }
+
+  previousPage() {
+    this.currentPage -= 1;
+    this.pagination;
+  }
+
+  nextPage() {
+    this.currentPage += 1;
+    this.pagination;
   }
 }

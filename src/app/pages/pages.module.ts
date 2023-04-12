@@ -11,6 +11,7 @@ import { CustomerModule } from './customer/customer.module';
 import { ProductModule } from './product/product.module';
 import { ProductRoutingModule } from './product/product-routing.module';
 import { ProductPage } from './product/product.component';
+import { DevExtremeModule } from 'devextreme-angular';
 
 @NgModule({
   declarations: [DashboardPage, CustomerPage, ProductPage],
