@@ -25,7 +25,7 @@ export abstract class ListBase<T extends Item> {
     }
   }
 
-  delete() {
+  delete(database: string) {
     if (
       window.confirm('Os dados digitados não serão salvos, deseja continuar?')
     ) {
@@ -35,7 +35,7 @@ export abstract class ListBase<T extends Item> {
         const index = this.items.findIndex((item) => item === itemToDelete);
         this.items.splice(index, 1, itemToDelete);
       }
-      localStorage.setItem('customers', JSON.stringify(this.items));
+      localStorage.setItem(database, JSON.stringify(this.items));
     }
   }
 
@@ -59,7 +59,10 @@ export abstract class ListBase<T extends Item> {
   get pagination() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    console.log(Math.ceil(this.items.length / this.itemsPerPage));
+
+    if (this.items.length <= 0) {
+      this.totalPages = 1;
+    }
 
     return this.items.slice(startIndex, endIndex);
   }

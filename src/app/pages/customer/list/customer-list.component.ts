@@ -1,6 +1,5 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
-import { NgModel } from '@angular/forms';
-import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ListBase } from 'src/app/shared/listBase';
 import { Customer } from 'src/app/shared/types';
 
@@ -38,7 +37,7 @@ export class CustomerListComponent extends ListBase<Customer> {
   }
 
   deleteCustomer() {
-    this.delete();
+    this.delete('customers');
   }
 
   searchCustomer(pSearchTerm: string) {

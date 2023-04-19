@@ -27,12 +27,17 @@ export class CustomerEditComponent {
 
   editar() {
     const index = this.customers.findIndex((c) => c.id === this.customer?.id);
+    console.log(this.customer);
 
     if (index !== -1) {
       if (this.customer) {
         this.customer!.selected = false;
         this.customer!.deleted = false;
         Object.assign(this.customers[index], this.customer);
+        console.log(
+          'Object.assign',
+          Object.assign(this.customers[index], this.customer)
+        );
       }
     }
     localStorage.setItem('customers', JSON.stringify(this.customers));

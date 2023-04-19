@@ -3,6 +3,7 @@ background: none;
 border: 1px solid var(--border-grid);
 border-radius: 5px;
 color: var(--font-color-selected);
+user-select: none;
 }
 
 button:hover{

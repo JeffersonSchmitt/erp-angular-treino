@@ -1,1 +1,82 @@
-<p>list works!</p>
+<erp-topbar [titulo]="title" class="topbar"></erp-topbar>
+<nav class="nav">
+  <div class="buttons">
+    <button class="button"><a class="nav-link" [routerLink]="['/produtos/adicionar']">Adicionar</a></button>
+    <button class="button -middle"><a class="nav-link" (click)="editProduct()">Editar</a></button>
+    <button class="button"><a class="nav-link" (click)="deleteProduct()">Deletar</a></button>
+  </div>
+  <form class="d-flex " role="search">
+    <input type="text" class="form-control me-2 search" placeholder="Procurar" #filter
+      (input)="searchProduct(filter.value)" name="search">
+  </form>
+</nav>
+<table class="table" *ngIf="!this.showFilteredList">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Nome</th>
+      <th>Marca</th>
+      <th>Categoria</th>
+      <th>Un.Medida</th>
+      <th>Preço</th>
+      <th>Estoque</th>
+      <th>Fornecedor</th>
+      <th>Cod.Barra</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let product of this.pagination" [class.active]="product.selected"
+    [ngClass]="{'selected': product.selected}" (click)="selectProduct(product)">
+    <tr *ngIf="!product.deleted">
+      <td><input type="checkbox" [checked]="product.selected"></td>
+      <td title="Detalhes de {{product.name}}" class="field-link" [routerLink]="['/produtos/detalhes']">{{
+        product.name }}</td>
+      <td>{{ product.brand }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.measuringUnit }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.supplier }}</td>
+      <td>{{ product.codeBar }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<nav *ngIf="!this.showFilteredList">
+  <ul class="pagination">
+    <li class="page-item"><button class="page-link button" [disabled]="currentPage === 1"
+        [class.disabled]="currentPage === 1" (click)="previousPage()">Anterior</button></li>
+    <li class="page-item"><button class="page-link button" [disabled]="this.currentPage === totalPages"
+        [class.disabled]="this.currentPage === totalPages" (click)="nextPage()"
+        style="margin-left: 8px;">Próxima</button></li>
+  </ul>
+</nav>
+<table class="table" *ngIf="this.showFilteredList">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Nome</th>
+      <th>Marca</th>
+      <th>Categoria</th>
+      <th>Un.Medida</th>
+      <th>Preço</th>
+      <th>Estoque</th>
+      <th>Fornecedor</th>
+      <th>Cod.Barra</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let product of filteredList" [class.active]="product.selected"
+    [ngClass]="{'selected': product.selected}" (click)="selectProduct(product)">
+    <tr *ngIf="!product.deleted">
+      <td><input type="checkbox" [checked]="product.selected"></td>
+      <td title="Detalhes de {{product.name}}" class="field-link" [routerLink]="['/produtos/detalhes']">{{
+        product.name }}</td>
+      <td>{{ product.brand }}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.measuringUnit }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.supplier }}</td>
+      <td>{{ product.codeBar }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -21,10 +21,12 @@ export type Customer = {
   selected: boolean;
   state: string;
 };
+
 export type Product = {
   brand: string;
   category: string;
   codeBar: string;
+  deleted?: boolean;
   description: string;
   id: number;
   imageUrl: string;
@@ -32,5 +34,6 @@ export type Product = {
   name: string;
   price: number;
   quantity: number;
+  selected?: boolean;
   supplier: string;
 };
