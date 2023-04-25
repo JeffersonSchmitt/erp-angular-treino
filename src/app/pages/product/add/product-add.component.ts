@@ -1,8 +1,57 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'erp-product-add',
   templateUrl: './product-add.component.html',
   styleUrls: ['./product-add.component.scss'],
 })
-export class ProductAddComponent {}
+export class ProductAddComponent {
+  title: string = 'Adicionar produto';
+  productForm!: FormGroup;
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {
+    this.productForm = this.formBuilder.group({
+      brand: ['', Validators.required],
+      category: ['', Validators.required],
+      codeBar: ['', Validators.required],
+      cost: ['', Validators.required],
+      description: [''],
+      imageUrl: ['', Validators.required],
+      measuringUnit: ['', Validators.required],
+      minQuantity: ['', Validators.required],
+      name: ['', Validators.required],
+      price: ['', Validators.required],
+      quantity: ['', Validators.required],
+      supplier: ['', Validators.required],
+    });
+  }
+  ngOnInit() {}
+
+  voltar() {
+    if (
+      window.confirm('Os dados digitados não serão salvos, deseja continuar?')
+    ) {
+      this.router.navigate(['produtos/listar']);
+    }
+  }
+
+  adicionar() {
+    let products = JSON.parse(localStorage.getItem('products') || '[]');
+
+    const newProduct = {
+      id: products.length + 1,
+      ...this.productForm.value,
+      selected: false,
+      deleted: false,
+    };
+    products.push(newProduct);
+
+    localStorage.setItem('products', JSON.stringify(products));
+    this.router.navigate(['produtos/listar']);
+  }
+}

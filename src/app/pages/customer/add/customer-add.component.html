@@ -1,6 +1,5 @@
 <erp-topbar [titulo]="title" class="topbar"></erp-topbar>
 <div class="forms">
-  <erp-dialog-confirm #modalRef></erp-dialog-confirm>
   <form [formGroup]="this.customerForm" (ngSubmit)="adicionar()">
     <div class="row g-2">
       <div class="form-group col-md-6">

@@ -1,1 +1,75 @@
-<p>add works!</p>
+<erp-topbar [titulo]="title" class="topbar"></erp-topbar>
+<div class="forms">
+  <form [formGroup]="this.productForm" (ngSubmit)="adicionar()">
+    <div class="row g-2">
+      <div class="form-group col-md-6">
+        <label for="name">Nome:</label>
+        <input type="text" class="form-control" id="name" formControlName="name" placeholder="Digite o nome">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="codeBar">Código de barras (EAN):</label>
+        <input type="text" class="form-control" id="codeBar" formControlName="codeBar"
+          placeholder="Digite o código de barras">
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="form-group col-md-6">
+        <label for="category">Categoria:</label>
+        <input type="text" class="form-control" id="category" formControlName="category"
+          placeholder="Digite a categoria">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="imageUrl">Imagem do produto(link):</label>
+        <input type="text" class="form-control" id="imageUrl" formControlName="imageUrl"
+          placeholder="Digite o link da imagem">
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="form-group col-md-6">
+        <label for="cost">Valor de custo:</label>
+        <input type="text" class="form-control" id="cost" formControlName="cost" placeholder="Valor de custo">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="price">Valor de venda:</label>
+        <input type="text" class="form-control" id="price" formControlName="price" placeholder="Valor de venda">
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="form-group col-md-6">
+        <label for="minQuantity">Estoque mínimo:</label>
+        <input type="text" class="form-control" id="minQuantity" formControlName="minQuantity"
+          placeholder="Estoque mínimo">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="quantity">Estoque atual:</label>
+        <input type="text" class="form-control" id="quantity" formControlName="quantity" placeholder="Estoque atual">
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="form-group col-md-6">
+        <label for="brand">Marca:</label>
+        <input type="text" class="form-control" id="brand" formControlName="brand" placeholder="Digite a marca">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="supplier">Fornecedor:</label>
+        <input type="text" class="form-control" id="supplier" formControlName="supplier"
+          placeholder="Digite o fornecedor">
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="form-group col-md-6">
+        <label for="measuringUnit">Unidade de medida:</label>
+        <input type="text" class="form-control" id="measuringUnit" formControlName="measuringUnit"
+          placeholder="Digite a unidade de medida">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="descricao">Descrição:</label>
+      <textarea class="form-control" id="description" formControlName="description" rows="3"></textarea>
+    </div>
+    <div class="buttons-form">
+      <button type="submit" class="btn button">Enviar</button>
+      <button type="button" class="btn button -right" (click)="voltar()">Voltar</button>
+    </div>
+  </form>
+</div>
