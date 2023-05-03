@@ -16,18 +16,18 @@ export class ProductAddComponent {
     private formBuilder: FormBuilder
   ) {
     this.productForm = this.formBuilder.group({
-      brand: ['', Validators.required],
-      category: ['', Validators.required],
-      codeBar: ['', Validators.required],
-      cost: ['', Validators.required],
+      brand: [''],
+      category: [''],
+      codeBar: [''],
+      cost: [''],
       description: [''],
-      imageUrl: ['', Validators.required],
-      measuringUnit: ['', Validators.required],
-      minQuantity: ['', Validators.required],
-      name: ['', Validators.required],
-      price: ['', Validators.required],
-      quantity: ['', Validators.required],
-      supplier: ['', Validators.required],
+      imageUrl: [''],
+      measuringUnit: [''],
+      minQuantity: [''],
+      name: [''],
+      price: [''],
+      quantity: [''],
+      supplier: [''],
     });
   }
   ngOnInit() {}

@@ -23,19 +23,19 @@ export type Customer = {
 };
 
 export type Product = {
-  brand: string; //✔
-  category: string; //✔
-  codeBar: string; //✔
-  cost: number; //✔
-  deleted?: boolean; //✔
+  brand: string;
+  category: string;
+  codeBar: string;
+  cost: number;
+  deleted?: boolean;
   description: string;
-  id: number; //✔
-  imageUrl: string; //✔
+  id: number;
+  imageUrl: string;
   measuringUnit: string;
-  minQuantity: number; //✔
-  name: string; //✔
-  price: number; //✔
-  quantity: number; //✔
-  selected?: boolean; //✔
-  supplier: string; //✔
+  minQuantity: number;
+  name: string;
+  price: number;
+  quantity: number;
+  selected?: boolean;
+  supplier: string;
 };

@@ -24,14 +24,14 @@ export class CustomerListComponent extends ListBase<Customer> {
     this.totalPages = Math.ceil(this.items.length / this.itemsPerPage);
   }
 
-  selectCustomer(cliente: Customer) {
-    this.select(cliente);
+  selectCustomer(customer: Customer) {
+    this.select(customer);
   }
 
   editCustomer() {
-    this.items.forEach((cliente) => {
-      if (cliente.selected == true) {
-        this.routerList.navigate(['clientes/editar'], { state: { cliente } });
+    this.items.forEach((customer) => {
+      if (customer.selected == true) {
+        this.routerList.navigate(['clientes/editar'], { state: { customer } });
       }
     });
   }

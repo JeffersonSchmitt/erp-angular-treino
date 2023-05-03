@@ -1,1 +1,83 @@
-<p>edit works!</p>
+<erp-topbar [titulo]="title" class="topbar"></erp-topbar>
+<div class="forms">
+  <form>
+    <div class="row g-2">
+      <div class="form-group col-md-6">
+        <label for="nome">Nome:</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="product!.name"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o nome" [value]="product?.name">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="codeBar">Código de barras (EAN):</label>
+        <input type="text" class="form-control" id="codeBar" [(ngModel)]="product!.codeBar"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o código de barras (EAN)"
+          [value]="product?.codeBar">
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="form-group col-md-6">
+        <label for="nome">Categoria:</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="product!.category"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o nome" [value]="product?.category">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="codeBar">Preço:</label>
+        <input type="text" class="form-control" id="codeBar" [(ngModel)]="product!.price"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o código de barras (EAN)" [value]="product?.price">
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="form-group col-md-4">
+        <label for="nome">Estoque:</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="product!.quantity"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o nome" [value]="product?.quantity">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="codeBar">Estoque mínimo:</label>
+        <input type="text" class="form-control" id="codeBar" [(ngModel)]="product!.minQuantity"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o código de barras (EAN)"
+          [value]="product?.minQuantity">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="codeBar">Custo:</label>
+        <input type="text" class="form-control" id="codeBar" [(ngModel)]="product!.cost"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o código de barras (EAN)" [value]="product?.cost">
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="form-group col-md-6">
+        <label for="nome">Marca:</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="product!.brand"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o nome" [value]="product?.brand">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="codeBar">Fornecedor:</label>
+        <input type="text" class="form-control" id="codeBar" [(ngModel)]="product!.supplier"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o código de barras (EAN)"
+          [value]="product?.supplier">
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="form-group col-md-6">
+        <label for="nome">Unidade de medida:</label>
+        <input type="text" class="form-control" id="nome" [(ngModel)]="product!.measuringUnit"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o nome" [value]="product?.measuringUnit">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="codeBar">Imagem (url):</label>
+        <input type="text" class="form-control" id="codeBar" [(ngModel)]="product!.imageUrl"
+          [ngModelOptions]="{standalone: true}" placeholder="Digite o código de barras (EAN)"
+          [value]="product?.imageUrl">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="descricao">Descrição:</label>
+      <textarea class="form-control" id="description" [(ngModel)]="product!.description"
+        [ngModelOptions]="{standalone: true}" rows="3" [value]="product?.description"></textarea>
+    </div>
+    <div class="buttons-form">
+      <button type="submit" class="btn button" (click)="editar()">Enviar</button>
+      <button type="button" class="btn button -right" (click)="voltar()">Voltar</button>
+    </div>
+  </form>
+</div>
