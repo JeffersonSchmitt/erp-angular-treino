@@ -20,6 +20,12 @@
             "outputPath": "dist/erp-angular-treino",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "allowedCommonJsDependencies": [
+              "jszip",
+              "devexpress-diagram",
+              "devexpress-gantt",
+              "devextreme-quill"
+           ],
             "polyfills": [
               "zone.js"
             ],

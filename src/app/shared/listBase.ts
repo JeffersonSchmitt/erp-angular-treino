@@ -32,6 +32,7 @@ export abstract class ListBase<T extends Item> {
       const itemToDelete = this.items.find((item) => item.selected === true);
       if (itemToDelete) {
         itemToDelete.deleted = true;
+        itemToDelete.selected = false;
         const index = this.items.findIndex((item) => item === itemToDelete);
         this.items.splice(index, 1, itemToDelete);
       }

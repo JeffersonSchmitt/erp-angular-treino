@@ -20,6 +20,7 @@ export type Customer = {
   phone: string;
   selected: boolean;
   state: string;
+  typeCustomer: string;
 };
 
 export type Product = {
@@ -38,4 +39,13 @@ export type Product = {
   quantity: number;
   selected?: boolean;
   supplier: string;
+};
+
+export type ViaCep = {
+  cep: string;
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
 };

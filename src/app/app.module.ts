@@ -9,6 +9,7 @@ import { CustomerRoutingModule } from './pages/customer/customer-routing.module'
 import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
 import { ProductRoutingModule } from './pages/product/product-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { ProductRoutingModule } from './pages/product/product-routing.module';
     FormsModule,
     PagesModule,
     RouterModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
