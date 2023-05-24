@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from 'src/app/shared/types';
+import { Customer, Product } from 'src/app/shared/types';
 
 @Component({
   selector: 'product-erp-edit',
@@ -11,11 +11,12 @@ export class ProductEditComponent {
   product?: Product;
   title: string = 'Edição de produto';
   products!: Product[];
+  customers!: Customer[];
+  suppliers: Customer[] = [];
   constructor(private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.product = history.state.product;
-    console.log(this.product);
 
     const segmentTitle =
       this.product!.name.toString().charAt(0).toUpperCase() +
@@ -23,7 +24,12 @@ export class ProductEditComponent {
     this.title = segmentTitle;
 
     this.products = JSON.parse(localStorage.getItem('products') || '[]');
-    console.log(this.products);
+    this.customers = JSON.parse(localStorage.getItem('customers') || '[]');
+    this.customers.forEach((customer) => {
+      if (customer.typeCustomer === 'fornecedor') {
+        this.suppliers.push(customer);
+      }
+    });
   }
 
   editar() {

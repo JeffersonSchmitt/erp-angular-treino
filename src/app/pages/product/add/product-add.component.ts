@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Customer, Product } from 'src/app/shared/types';
 
 @Component({
   selector: 'erp-product-add',
@@ -10,6 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProductAddComponent {
   title: string = 'Adicionar produto';
   productForm!: FormGroup;
+  customers!: Customer[];
+  suppliers: Customer[] = [];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -30,7 +33,14 @@ export class ProductAddComponent {
       supplier: [''],
     });
   }
-  ngOnInit() {}
+  ngOnInit() {
+    this.customers = JSON.parse(localStorage.getItem('customers') || '[]');
+    this.customers.forEach((customer) => {
+      if (customer.typeCustomer === 'fornecedor') {
+        this.suppliers.push(customer);
+      }
+    });
+  }
 
   voltar() {
     if (

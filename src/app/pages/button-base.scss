@@ -24,3 +24,8 @@ transition: all 0.4s ease-out;
   background-color: var(--border-sidebar);
   color: var(--background-card);
 }
+.left-input{
+  border-radius: 0;
+  border-top-right-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+}
