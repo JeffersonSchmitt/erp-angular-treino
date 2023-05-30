@@ -1,7 +1,20 @@
+import { type } from 'jquery';
+
 export type MenuItem = {
   icon: string;
   title: string;
   route: string;
+};
+
+export type Sales = {
+  customer: Customer;
+  products: Product[];
+  payment: Payment;
+  total: number;
+};
+
+export type Payment = {
+  name: string;
 };
 
 export type Customer = {

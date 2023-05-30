@@ -10,6 +10,7 @@ import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
 import { ProductRoutingModule } from './pages/product/product-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SalesRoutingModule } from './pages/sales/sales-routing.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     ComponentsModule,
     CustomerRoutingModule,
     ProductRoutingModule,
+    SalesRoutingModule,
     FormsModule,
     PagesModule,
     RouterModule,

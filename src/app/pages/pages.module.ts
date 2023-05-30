@@ -12,9 +12,12 @@ import { ProductModule } from './product/product.module';
 import { ProductRoutingModule } from './product/product-routing.module';
 import { ProductPage } from './product/product.component';
 import { DevExtremeModule } from 'devextreme-angular';
+import { SalesPage } from './sales/sales.component';
+import { SalesModule } from './sales/sales.module';
+import { SalesRoutingModule } from './sales/sales-routing.module';
 
 @NgModule({
-  declarations: [DashboardPage, CustomerPage, ProductPage],
+  declarations: [DashboardPage, CustomerPage, ProductPage, SalesPage],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -25,6 +28,8 @@ import { DevExtremeModule } from 'devextreme-angular';
     CustomerRoutingModule,
     ProductModule,
     ProductRoutingModule,
+    SalesModule,
+    SalesRoutingModule,
   ],
   providers: [],
   bootstrap: [],
@@ -36,6 +41,8 @@ import { DevExtremeModule } from 'devextreme-angular';
     ProductModule,
     ProductPage,
     ProductRoutingModule,
+    SalesModule,
+    SalesRoutingModule,
   ],
 })
 export class PagesModule {}
